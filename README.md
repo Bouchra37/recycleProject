@@ -1,4 +1,4 @@
-# pizzaProject
+# recycleProject
 
 ### Screenshots
 
