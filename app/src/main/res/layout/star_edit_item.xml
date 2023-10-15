@@ -12,7 +12,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:text="id"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img"
         android:layout_width="100dp"

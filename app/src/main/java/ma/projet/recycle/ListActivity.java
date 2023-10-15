@@ -82,8 +82,9 @@ public class ListActivity extends AppCompatActivity {
 
 
     public void init() {
-        service.create(new Star("Bouchra Ennahhal", "https://media.licdn.com/dms/image/D4E03AQEP7zdvyDitdw/profile-displayphoto-shrink_400_400/0/1684931875058?e=1703116800&v=beta&t=Q6JgvRshJUKfVASvdU6ocr_rgiO9lBm2NLNILN_uw1c", 5));
+        service.create(new Star("ryan reynolds", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg/1200px-Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg", 5));
         service.create(new Star("kate bosworth", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kate_Bosworth_%288078979442%29.jpg/800px-Kate_Bosworth_%288078979442%29.jpg", 3.5f));
+        service.create(new Star("blake lively", "https://resizing.flixster.com/e4WD78AWi-fFQ7MiTuRg_uiPSPg=/ems.ZW1zLXByZC1hc3NldHMvY2VsZWJyaXRpZXMvNjRlNzA3NTYtMzc2YS00NWJlLWFiM2UtZDcxMGRhZTY2ZTU1LmpwZw==", 5));
         service.create(new Star("george clooney", "https://fr.web.img4.acsta.net/c_310_420/pictures/16/05/12/17/04/136865.jpg", 3));
         service.create(new Star("michelle rodriguez", "https://upload.wikimedia.org/wikipedia/commons/e/e0/Michelle_Rodriguez_2010_cropped.jpg", 5));
         service.create(new Star("van diesel", "https://fr.web.img6.acsta.net/pictures/15/10/14/11/30/335169.jpg", 1));

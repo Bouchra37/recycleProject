@@ -11,6 +11,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +28,7 @@ import java.util.List;
 
 import ma.projet.recycle.R;
 import ma.projet.recycle.beans.Star;
+import ma.projet.recycle.service.StarService;
 
 public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder> implements Filterable {
     private static final String TAG = "StarAdapter";
@@ -42,8 +48,44 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
     @NonNull
     @Override
     public StarViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(this.context).inflate(R.layout.star_item, viewGroup, false);
-        return new StarViewHolder(v);
+        View v = LayoutInflater.from(this.context).inflate(R.layout.star_item,
+                viewGroup, false);
+        final StarViewHolder holder = new StarViewHolder(v);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popup = LayoutInflater.from(context).inflate(R.layout.star_edit_item, null,
+                        false);
+                final ImageView img = popup.findViewById(R.id.img);
+                final RatingBar bar = popup.findViewById(R.id.ratingBar);
+                final TextView idss = popup.findViewById(R.id.idss);
+                Bitmap bitmap =
+                        ((BitmapDrawable)((ImageView)v.findViewById(R.id.img)).getDrawable()).getBitmap();
+                img.setImageBitmap(bitmap);
+                bar.setRating(((RatingBar)v.findViewById(R.id.stars)).getRating());
+                idss.setText(idss.getText().toString());
+                AlertDialog dialog = new AlertDialog.Builder(context)
+                        .setTitle("Rate your favorite star ")
+                        .setView(popup)
+                        .setPositiveButton("Valider", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                float s = bar.getRating();
+                                int ids = Integer.parseInt(idss.getText().toString());
+                                Star star = StarService.getInstance().findById(ids);
+                                star.setStar(s);
+                                StarService.getInstance().update(star);
+                                notifyItemChanged(holder.getAdapterPosition());
+                            }
+                        })
+                        .setNegativeButton("Annuler", null)
+                        .create();
+
+                dialog.show();
+            }
+        });
+        return holder;
     }
 
     @Override
