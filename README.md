@@ -6,13 +6,13 @@
 ![Animation ](./assets/animation.png)
 
 #### Main page
-![Main](./assets/main.png)
+![Main](./assets/list.png)
 
 #### Search 
-![Search](./assets/search.png)
+![Search](./assets/recherche.png)
 
 #### Share
-![Share](./assets/share.png)
+![Share](./assets/partage.png)
 
 #### Popup
 ![popup](./assets/popup.png)
